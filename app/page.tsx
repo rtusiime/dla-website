@@ -205,8 +205,8 @@ export default function Home() {
               </div>
               <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
                 <Image
-                  src="/priscilla-du-preez-ggeZ9oyI-PE-unsplash.jpg"
-                  alt="Students engaged in discussion"
+                  src="/vision.png"
+                  alt="DLA Vision Illustration"
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"
                 />
