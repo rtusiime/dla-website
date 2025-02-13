@@ -3,6 +3,9 @@ import Link from "next/link"
 import { Globe, BookOpen, Users, Plane } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { LearnMoreDialog } from "@/components/learn-more-dialog"
+import { ContactSheet } from "@/components/contact-sheet"
+import { ApplyDialog } from "@/components/apply-dialog"
 
 export default function Home() {
   return (
@@ -48,9 +51,7 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-stone-700 mb-8">
                 Empowering low-income American students through an innovative international boarding school experience.
               </p>
-              <Button size="lg" className="bg-stone-800 hover:bg-stone-900 text-white transition-colors">
-                Learn More
-              </Button>
+              <LearnMoreDialog />
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
@@ -143,9 +144,7 @@ export default function Home() {
                   We're committed to making our program accessible to talented, motivated students regardless of their
                   financial background.
                 </p>
-                <Button size="lg" className="bg-stone-800 hover:bg-stone-900 text-white transition-colors">
-                  Apply Now
-                </Button>
+                <ApplyDialog />
               </div>
             </div>
           </div>
@@ -222,13 +221,7 @@ export default function Home() {
             <p className="text-xl mb-8">
               Have questions? We'd love to hear from you. Reach out to learn more about Douglass Leadership Academy.
             </p>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white hover:text-stone-900 transition-colors"
-            >
-              Get in Touch
-            </Button>
+            <ContactSheet />
           </div>
         </section>
       </main>
