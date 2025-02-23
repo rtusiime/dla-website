@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Douglass Leadership Academy",
   description: "A World-Class Boarding School for Low-Income American Students",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -22,7 +21,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'
