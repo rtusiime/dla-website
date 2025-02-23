@@ -1,252 +1,297 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Globe, BookOpen, Users, Plane } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
-import { LearnMoreDialog } from "@/components/learn-more-dialog"
-import { ContactSheet } from "@/components/contact-sheet"
-import { ApplyDialog } from "@/components/apply-dialog"
+import { ApproachTimeline } from "@/components/ApproachTimeLine"
+import { DelightfulFAQ } from "@/components/DelightfulFAQ"
+import { ContactForm } from "@/components/ContactForm"
+import { AnimatePresence } from "framer-motion"
+import DLALogo from '@/public/dla-logo.png'
 
 export default function Home() {
+  const [showContactForm, setShowContactForm] = useState(false)
+
+  const handleBeginJourney = () => {
+    // Here you can implement the logic for beginning the journey
+    // For now, let's just show an alert
+    alert(
+      "Welcome to your journey with Douglass Leadership Academy! Our admissions team will be in touch with you shortly to guide you through the next steps.",
+    )
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
-      <header className="container mx-auto px-4 py-8">
-        <nav className="flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Image
-              src="/dla-logo.webp"
-              alt="DLA Logo"
-              width={40}
-              height={40}
-              className="rounded-full"
-              priority
-            />
-            <span className="text-2xl font-bold text-stone-800">Douglass Leadership Academy</span>
-          </div>
-          <div className="hidden md:flex space-x-4">
-            <Link href="#features" className="text-stone-600 hover:text-stone-900 transition-colors">
-              Features
-            </Link>
-            <Link href="#program" className="text-stone-600 hover:text-stone-900 transition-colors">
-              Program
-            </Link>
-            <Link href="#admissions" className="text-stone-600 hover:text-stone-900 transition-colors">
-              Admissions
-            </Link>
-            <Link href="#faq" className="text-stone-600 hover:text-stone-900 transition-colors">
-              FAQ
-            </Link>
-            <Link href="#vision" className="text-stone-600 hover:text-stone-900 transition-colors">
-              Vision
-            </Link>
-          </div>
-        </nav>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Sticky Header */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-primary/10">
+        <div className="container mx-auto px-4 py-3">
+          <nav className="flex justify-between items-center">
+            <div className="flex items-center space-x-3">
+              <div className="w-[60px] h-[60px] rounded-full overflow-hidden relative">
+                <Image
+                  src={DLALogo}
+                  alt="Douglass Leadership Academy Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xl font-bold text-primary">DLA</span>
+            </div>
+            <div className="hidden md:flex space-x-8">
+              <Link href="#about" className="text-primary/80 hover:text-primary transition-colors">
+                About
+              </Link>
+              <Link href="#academics" className="text-primary/80 hover:text-primary transition-colors">
+                Academics
+              </Link>
+              <Link href="#approach" className="text-primary/80 hover:text-primary transition-colors">
+                Our Approach
+              </Link>
+              <Link href="#faq" className="text-primary/80 hover:text-primary transition-colors">
+                FAQ
+              </Link>
+            </div>
+            <Button className="bg-primary hover:bg-primary/90 text-white" onClick={() => setShowContactForm(true)}>
+              Contact Us
+            </Button>
+          </nav>
+        </div>
       </header>
 
-      <main>
-        <section className="container mx-auto px-4 py-16">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold text-stone-900 mb-6">A World-Class Education for All</h1>
-              <p className="text-xl md:text-2xl text-stone-700 mb-8">
-                Empowering low-income American students through an innovative international boarding school experience.
-              </p>
-              <LearnMoreDialog />
-            </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/frederick-douglass.jpg"
-                alt="Portrait of Frederick Douglass, our inspiration for academic excellence and leadership"
-                fill
-                className="object-cover transition-transform duration-300 hover:scale-105"
-                priority
-              />
-            </div>
-          </div>
-        </section>
-
-        <section id="features" className="bg-white py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-stone-900 mb-8 text-center">Why Douglass Leadership Academy?</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <FeatureCard
-                icon={<Globe className="w-12 h-12 text-stone-700" />}
-                title="Global Perspective"
-                description="Develop cross-cultural fluency and broaden your worldview."
-              />
-              <FeatureCard
-                icon={<BookOpen className="w-12 h-12 text-stone-700" />}
-                title="Rigorous Academics"
-                description="Experience a world-class IB curriculum that prepares you for top universities."
-              />
-              <FeatureCard
-                icon={<Users className="w-12 h-12 text-stone-700" />}
-                title="Supportive Community"
-                description="Thrive in a safe, family-like atmosphere with 24/7 mentorship."
-              />
-              <FeatureCard
-                icon={<Plane className="w-12 h-12 text-stone-700" />}
-                title="Affordable Excellence"
-                description="Access a premium education at a fraction of U.S. private school costs."
-              />
-            </div>
-          </div>
-        </section>
-
-        <section id="program" className="bg-stone-100 py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-stone-900 mb-8 text-center">Our Program</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div id="classroom-image-container" className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
-                <Image
-                  key="classroom-image"
-                  src="/kyle-glenn-nXt5HtLmlgE-unsplash.jpg"
-                  alt="Students engaged in classroom learning"
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                  priority
-                />
-              </div>
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl font-semibold text-stone-800 mb-4">World-Class Education in East Africa</h3>
-                <p className="text-lg text-stone-700 mb-4">
-                  At Douglass Leadership Academy, we leverage the cost advantages of East African boarding schools to
-                  provide a premium educational experience at an affordable price.
-                </p>
-                <ul className="list-disc list-inside text-stone-600 space-y-2">
-                  <li>International Baccalaureate (IB) curriculum</li>
-                  <li>Small class sizes and personalized attention</li>
-                  <li>Extensive extracurricular activities</li>
-                  <li>Cultural immersion and language learning</li>
-                  <li>College and career preparation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="admissions" className="bg-white py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="order-2 md:order-1">
-                <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
-                  <Image
-                    src="/priscilla-du-preez-ggeZ9oyI-PE-unsplash.jpg"
-                    alt="Students engaged in discussion"
-                    fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-              </div>
-              <div className="order-1 md:order-2 text-center md:text-left">
-                <h2 className="text-3xl font-bold text-stone-900 mb-8">Admissions</h2>
-                <p className="text-xl text-stone-700 mb-8">
-                  We're committed to making our program accessible to talented, motivated students regardless of their
-                  financial background.
-                </p>
-                <ApplyDialog />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="faq" className="bg-white py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-stone-900 mb-8 text-center">Frequently Asked Questions</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold text-stone-800 mb-4">Why "Douglass" Leadership Academy?</h3>
-                <p className="text-stone-600 mb-8">
-                  Named after Frederick Douglass, one of the most influential African Americans in history and a Rochester native, 
-                  our academy embodies his spirit of educational empowerment and social transformation.
-                </p>
-                
-                <h3 className="text-xl font-semibold text-stone-800 mb-4">How do you ensure student safety?</h3>
-                <p className="text-stone-600 mb-8">
-                  Our partner schools are located in secure, upscale areas and provide round-the-clock supervision. East African 
-                  boarding schools have a long-standing reputation for safety and security, often exceeding what students experience 
-                  in challenging urban environments.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-stone-800 mb-4">What about medical care?</h3>
-                <p className="text-stone-600 mb-8">
-                  Students have access to quality healthcare facilities in major East African cities, often at more affordable rates 
-                  than in the U.S. Our comprehensive health insurance coverage ensures students receive excellent medical care when needed.
-                </p>
-
-                <h3 className="text-xl font-semibold text-stone-800 mb-4">How do you maintain family connections?</h3>
-                <p className="text-stone-600 mb-8">
-                  We facilitate regular virtual check-ins between parents and students, provide 24/7 staff support, and create a 
-                  family-like atmosphere through our dedicated mentorship program. Parents also have the opportunity for annual visits.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="vision" className="bg-stone-100 py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-stone-900 mb-8 text-center">Our Vision</h2>
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="text-2xl font-semibold text-stone-800 mb-4">Building Sustainable Development</h3>
-                <p className="text-lg text-stone-700 mb-4">
-                  Douglass Leadership Academy is more than a school—it's a blueprint for sustainable development through 
-                  educational arbitrage. By leveraging cost advantages in East Africa, we provide world-class education 
-                  while creating positive economic impact in local communities.
-                </p>
-                <ul className="list-disc list-inside text-stone-600 space-y-2">
-                  <li>Creating local employment opportunities</li>
-                  <li>Developing infrastructure in host communities</li>
-                  <li>Fostering international cultural exchange</li>
-                  <li>Supporting local student scholarships</li>
-                </ul>
-              </div>
-              <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
-                <Image
-                  src="/vision.png"
-                  alt="DLA Vision Illustration"
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="bg-stone-900 text-white py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
-            <p className="text-xl mb-8">
-              Have questions? We'd love to hear from you. Reach out to learn more about Douglass Leadership Academy.
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-r from-primary to-secondary overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
+        <div className="absolute inset-0">
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/frederick-douglass.jpg-720FqwMUTdfMggXOdcae5WsBEg3e45.jpeg"
+            alt="Frederick Douglass Portrait"
+            fill
+            className="object-cover opacity-20 mix-blend-overlay"
+            priority
+          />
+        </div>
+        <div className="relative z-10 container mx-auto px-4 py-24 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
+              Education is Freedom
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed animate-fade-in-up animation-delay-200">
+              Continuing Frederick Douglass's legacy through world-class education that transcends borders and
+              transforms lives.
             </p>
-            <ContactSheet />
+            <Button
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
+              onClick={handleBeginJourney}
+            >
+              Begin Your Journey
+            </Button>
           </div>
-        </section>
-      </main>
+          <div className="hidden md:block">
+            <div className="w-[400px] h-[400px] relative mx-auto animate-float">
+              <Image
+                src={DLALogo}
+                alt="DLA Logo Large"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <footer className="bg-stone-800 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2025 Douglass Leadership Academy. All rights reserved.</p>
+      {/* Quote Section */}
+      <section className="bg-gradient-to-r from-accent to-accent-light py-16">
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <blockquote className="text-2xl md:text-3xl italic text-primary animate-fade-in">
+            "Once you learn to read, you will be forever free."
+            <footer className="text-lg mt-4 text-secondary font-semibold">— Frederick Douglass</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-primary mb-6 animate-fade-in-left">
+                Why Douglass Leadership Academy?
+              </h2>
+              <p className="text-lg text-secondary/80 mb-8 animate-fade-in-left animation-delay-200">
+                We're revolutionizing education by combining American excellence with East African affordability,
+                creating unprecedented opportunities for talented students.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <FeatureCard
+                  icon={<Globe className="w-8 h-8 text-primary" />}
+                  title="Global Perspective"
+                  description="Cross-cultural fluency"
+                />
+                <FeatureCard
+                  icon={<BookOpen className="w-8 h-8 text-primary" />}
+                  title="IB Curriculum"
+                  description="World-class education"
+                />
+                <FeatureCard
+                  icon={<Users className="w-8 h-8 text-primary" />}
+                  title="Community"
+                  description="24/7 mentorship"
+                />
+                <FeatureCard
+                  icon={<Plane className="w-8 h-8 text-primary" />}
+                  title="Affordable"
+                  description="Premium education"
+                />
+              </div>
+            </div>
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-2xl animate-float">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-13%20at%203.27.15%E2%80%AFPM-IojuRipKhjntfm9FG6nqgnUWsmm5G0.png"
+                alt="Globe showing Africa"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academics Section */}
+      <section id="academics" className="py-24 bg-gradient-to-b from-accent to-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[600px] rounded-lg overflow-hidden shadow-2xl animate-float">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-13%20at%203.26.52%E2%80%AFPM-YsB5jEtjOMwwQ55d5NZGVpNanVRslQ.png"
+                alt="Library"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold text-primary mb-6 animate-fade-in-right">Academic Excellence</h2>
+              <p className="text-lg text-secondary/80 mb-6 animate-fade-in-right animation-delay-200">
+                Our rigorous International Baccalaureate curriculum prepares students for success at top universities
+                worldwide while fostering critical thinking and global awareness.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "International Baccalaureate Diploma Programme",
+                  "Small class sizes for personalized attention",
+                  "Expert faculty from around the world",
+                  "State-of-the-art learning facilities",
+                  "Comprehensive college preparation",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center space-x-3 animate-fade-in-right"
+                    style={{ animationDelay: `${(i + 3) * 200}ms` }}
+                  >
+                    <div className="h-2 w-2 rounded-full bg-primary" />
+                    <span className="text-secondary/80">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button className="mt-8 bg-primary hover:bg-primary/90 text-white animate-fade-in-up animation-delay-1000">
+                Explore Curriculum
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Approach Section */}
+      <section id="approach" className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-primary mb-12 text-center animate-fade-in">Our Approach</h2>
+          <ApproachTimeline />
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-24 bg-gradient-to-b from-accent to-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-primary mb-12 text-center animate-fade-in">
+            Frequently Asked Questions
+          </h2>
+          <DelightfulFAQ />
+        </div>
+      </section>
+
+      {/* Admissions CTA */}
+      <section id="admissions" className="relative py-24 bg-gradient-to-r from-primary to-secondary">
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6 animate-fade-in">Begin Your Journey</h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in animation-delay-200">
+            Join a community of future leaders. Applications are now open for the 2025-2026 academic year.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
+              onClick={handleBeginJourney}
+            >
+              Begin Your Journey
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10 animate-fade-in-up animation-delay-600"
+              style={{ textShadow: "0 0 5px rgba(0,0,0,0.5)" }}
+            >
+              Request Information
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-primary text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center space-x-4 mb-4 md:mb-0">
+              <div className="w-[50px] h-[50px] relative">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/updated-final-dla-logo-SKnkVqqdzB7Z98PrRMMwRlATkL9W1D.png"
+                  alt="DLA Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="font-semibold">Douglass Leadership Academy</span>
+            </div>
+            <div className="flex space-x-4">
+              <Link href="#" className="hover:text-accent transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="hover:text-accent transition-colors">
+                Terms of Service
+              </Link>
+              <Link href="#" className="hover:text-accent transition-colors">
+                Contact
+              </Link>
+            </div>
+            <p className="text-white/60 mt-4 md:mt-0">&copy; 2025 DLA. All rights reserved.</p>
+          </div>
         </div>
       </footer>
+      <AnimatePresence>{showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}</AnimatePresence>
     </div>
   )
 }
 
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-function FeatureCard({ icon, title, description }: FeatureCardProps) {
+function FeatureCard({ icon, title, description }) {
   return (
-    <div className="bg-stone-50 p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
-      <div className="flex justify-center mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-stone-800 mb-2">{title}</h3>
-      <p className="text-stone-600">{description}</p>
+    <div className="p-4 rounded-lg bg-accent hover:bg-accent-light transition-colors animate-fade-in-up">
+      <div className="mb-3">{icon}</div>
+      <h3 className="font-semibold text-primary mb-1">{title}</h3>
+      <p className="text-sm text-secondary/70">{description}</p>
     </div>
   )
 }
+
