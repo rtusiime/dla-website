@@ -37,7 +37,7 @@ export default function Home() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-primary">DLA</span>
+              <span className="text-xl font-bold text-primary">Douglass Leadership Academy</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <Link href="#about" className="text-primary/80 hover:text-primary transition-colors">
@@ -86,7 +86,7 @@ export default function Home() {
               className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
               onClick={handleBeginJourney}
             >
-              Begin Your Journey
+              Learn More
             </Button>
           </div>
           <div className="hidden md:block">
@@ -257,7 +257,7 @@ export default function Home() {
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <div className="w-[50px] h-[50px] relative">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/updated-final-dla-logo-SKnkVqqdzB7Z98PrRMMwRlATkL9W1D.png"
+                  src={DLALogo}
                   alt="DLA Logo"
                   fill
                   className="object-contain"
@@ -266,14 +266,8 @@ export default function Home() {
               <span className="font-semibold">Douglass Leadership Academy</span>
             </div>
             <div className="flex space-x-4">
-              <Link href="#" className="hover:text-accent transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Contact
+              <Link href="/terms" className="hover:text-accent transition-colors">
+                Terms and Conditions
               </Link>
             </div>
             <p className="text-white/60 mt-4 md:mt-0">&copy; 2025 DLA. All rights reserved.</p>
