@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Douglass Leadership Academy",
   description: "A World-Class Boarding School for Low-Income American Students",
+  icons: {
+    icon: '/dla-logo',
+  },
 }
 
 export default function RootLayout({

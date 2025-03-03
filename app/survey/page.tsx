@@ -102,16 +102,34 @@ export default function SurveyForm() {
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log(data)
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-    })
-    setIsSubmitting(false)
-    // Here you would typically send the data to your backend
+    try {
+      // Send data to the API
+      const response = await fetch('/api/survey', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit survey');
+      }
+      
+      // Show success animation
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+      
+      console.log('Survey submitted successfully:', data);
+    } catch (error) {
+      console.error('Error submitting survey:', error);
+      alert('There was a problem submitting your survey. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const currentQuestion = questions[currentStep]
@@ -134,38 +152,53 @@ export default function SurveyForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex items-center justify-center p-4">
+    <div className="min-h-screen relative flex items-center justify-center p-4">
+      {/* Background image with overlay */}
+      <div className="fixed inset-0 z-0">
+        <img
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/frederick-douglass.jpg-OvXlNB2c5NlHT49PQFQhXIMjGLyzEq.jpeg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover filter blur-sm"
+        />
+        <div className="absolute inset-0 bg-[#8B7355]/80 mix-blend-multiply" />
+      </div>
+
+      {/* Form container */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full"
+        className="relative z-10 bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-w-2xl w-full"
       >
-        <h1 className="text-4xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        <h1 className="text-4xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#8B7355] to-[#6F4E37]">
           Douglas Leadership Academy
         </h1>
+
+        {/* Rest of the form content remains the same */}
         <div className="mb-8 relative pt-1">
           <div className="flex mb-2 items-center justify-between">
             <div>
-              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-purple-600 bg-purple-200">
+              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-[#8B7355] bg-[#8B7355]/10">
                 Progress
               </span>
             </div>
             <div className="text-right">
-              <span className="text-xs font-semibold inline-block text-purple-600">
+              <span className="text-xs font-semibold inline-block text-[#8B7355]">
                 {Math.round((currentStep / (questions.length - 1)) * 100)}%
               </span>
             </div>
           </div>
-          <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
+          <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-[#8B7355]/10">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${(currentStep / (questions.length - 1)) * 100}%` }}
               transition={{ duration: 0.5 }}
-              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500"
+              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-[#8B7355]"
             ></motion.div>
           </div>
         </div>
+
+        {/* Form content remains the same but update button colors */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -286,15 +319,21 @@ export default function SurveyForm() {
             </motion.div>
           </AnimatePresence>
           <div className="mt-6 flex justify-between">
-            <Button type="button" onClick={handlePrevious} disabled={currentStep === 0} variant="outline">
+            <Button
+              type="button"
+              onClick={handlePrevious}
+              disabled={currentStep === 0}
+              variant="outline"
+              className="border-[#8B7355] text-[#8B7355] hover:bg-[#8B7355]/10"
+            >
               Previous
             </Button>
             {currentStep < questions.length - 1 ? (
-              <Button type="button" onClick={handleNext}>
+              <Button type="button" onClick={handleNext} className="bg-[#8B7355] hover:bg-[#8B7355]/90">
                 Next
               </Button>
             ) : (
-              <Button type="submit" disabled={isSubmitting}>
+              <Button type="submit" disabled={isSubmitting} className="bg-[#8B7355] hover:bg-[#8B7355]/90">
                 {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
             )}
@@ -304,4 +343,3 @@ export default function SurveyForm() {
     </div>
   )
 }
-
