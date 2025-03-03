@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Globe, BookOpen, Users, Plane } from "lucide-react"
@@ -12,20 +12,25 @@ import { AnimatePresence } from "framer-motion"
 import DLALogo from '@/public/dla-logo.png'
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
 
-  const handleBeginJourney = () => {
-    // Here you can implement the logic for beginning the journey
-    // For now, let's just show an alert
-    alert(
-      "Welcome to your journey with Douglass Leadership Academy! Our admissions team will be in touch with you shortly to guide you through the next steps.",
-    )
-  }
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-primary/10">
+      {/* Header */}
+      <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-md border-b border-primary/10' 
+          : 'bg-transparent backdrop-blur-sm border-transparent'
+      }`}>
         <div className="container mx-auto px-4 py-3">
           <nav className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
@@ -37,25 +42,27 @@ export default function Home() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-primary">DLA</span>
+              <span className={`text-xl font-bold ${isScrolled ? 'text-primary' : 'text-white'}`}>Douglass Leadership Academy</span>
             </div>
             <div className="hidden md:flex space-x-8">
-              <Link href="#about" className="text-primary/80 hover:text-primary transition-colors">
+              <Link href="#about" className={`transition-colors ${isScrolled ? 'text-primary/80 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
                 About
               </Link>
-              <Link href="#academics" className="text-primary/80 hover:text-primary transition-colors">
+              <Link href="#academics" className={`transition-colors ${isScrolled ? 'text-primary/80 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
                 Academics
               </Link>
-              <Link href="#approach" className="text-primary/80 hover:text-primary transition-colors">
+              <Link href="#approach" className={`transition-colors ${isScrolled ? 'text-primary/80 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
                 Our Approach
               </Link>
-              <Link href="#faq" className="text-primary/80 hover:text-primary transition-colors">
+              <Link href="#faq" className={`transition-colors ${isScrolled ? 'text-primary/80 hover:text-primary' : 'text-white/90 hover:text-white'}`}>
                 FAQ
               </Link>
             </div>
-            <Button className="bg-primary hover:bg-primary/90 text-white" onClick={() => setShowContactForm(true)}>
-              Contact Us
-            </Button>
+            <Link href="/survey" passHref>
+              <Button className="bg-primary hover:bg-primary/90 text-white">
+                Contact Us
+              </Button>
+            </Link>
           </nav>
         </div>
       </header>
@@ -81,13 +88,14 @@ export default function Home() {
               Continuing Frederick Douglass's legacy through world-class education that transcends borders and
               transforms lives.
             </p>
-            <Button
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
-              onClick={handleBeginJourney}
-            >
-              Begin Your Journey
-            </Button>
+            <Link href="https://docs.google.com/document/d/1vbSUzIU7T-b6tNwws_djl22aMxBz45GOVA9D5iTdecs/edit?tab=t.0#heading=h.ordjhs9wp7ai" passHref target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
           <div className="hidden md:block">
             <div className="w-[400px] h-[400px] relative mx-auto animate-float">
@@ -176,12 +184,12 @@ export default function Home() {
             <div>
               <h2 className="text-4xl font-bold text-primary mb-6 animate-fade-in-right">Academic Excellence</h2>
               <p className="text-lg text-secondary/80 mb-6 animate-fade-in-right animation-delay-200">
-                Our rigorous International Baccalaureate curriculum prepares students for success at top universities
-                worldwide while fostering critical thinking and global awareness.
+                Our rigorous mastery-based curriculum prepares students for success at top universities
+                worldwide while fostering critical thinking, deep understanding, and personalized learning pathways.
               </p>
               <ul className="space-y-4">
                 {[
-                  "International Baccalaureate Diploma Programme",
+                  "Mastery-Based Programme",
                   "Small class sizes for personalized attention",
                   "Expert faculty from around the world",
                   "State-of-the-art learning facilities",
@@ -197,9 +205,11 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Button className="mt-8 bg-primary hover:bg-primary/90 text-white animate-fade-in-up animation-delay-1000">
-                Explore Curriculum
-              </Button>
+              <Link href="https://drive.google.com/file/d/11gobvwMjwgUjHFkkUhsm6C_dW5sHjfWj/view" passHref target="_blank" rel="noopener noreferrer">
+                <Button className="mt-8 bg-primary hover:bg-primary/90 text-white animate-fade-in-up animation-delay-1000">
+                  Explore Curriculum
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -232,13 +242,14 @@ export default function Home() {
             Join a community of future leaders. Applications are now open for the 2025-2026 academic year.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
-              onClick={handleBeginJourney}
-            >
-              Begin Your Journey
-            </Button>
+            <Link href="https://docs.google.com/document/d/1vbSUzIU7T-b6tNwws_djl22aMxBz45GOVA9D5iTdecs/edit?tab=t.0#heading=h.ordjhs9wp7ai" passHref target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
+              >
+                Begin Your Journey
+              </Button>
+            </Link>
             <Button
               size="lg"
               variant="outline"
@@ -257,7 +268,7 @@ export default function Home() {
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <div className="w-[50px] h-[50px] relative">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/updated-final-dla-logo-SKnkVqqdzB7Z98PrRMMwRlATkL9W1D.png"
+                  src={DLALogo}
                   alt="DLA Logo"
                   fill
                   className="object-contain"
@@ -266,14 +277,8 @@ export default function Home() {
               <span className="font-semibold">Douglass Leadership Academy</span>
             </div>
             <div className="flex space-x-4">
-              <Link href="#" className="hover:text-accent transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors">
-                Contact
+              <Link href="/terms" className="hover:text-accent transition-colors">
+                Terms and Conditions
               </Link>
             </div>
             <p className="text-white/60 mt-4 md:mt-0">&copy; 2025 DLA. All rights reserved.</p>
@@ -285,7 +290,13 @@ export default function Home() {
   )
 }
 
-function FeatureCard({ icon, title, description }) {
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="p-4 rounded-lg bg-accent hover:bg-accent-light transition-colors animate-fade-in-up">
       <div className="mb-3">{icon}</div>
@@ -294,4 +305,3 @@ function FeatureCard({ icon, title, description }) {
     </div>
   )
 }
-
