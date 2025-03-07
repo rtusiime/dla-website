@@ -8,9 +8,8 @@ const timelineItems = [
     phase: "Phase One: Pilot Program",
     icon: <Rocket className="w-6 h-6" />,
     items: [
-      "Partner with established IB schools",
+      "Partner with established boarding schools",
       "Initial cohort of 10 students",
-      "Focus on University of Rochester community",
       "Hands-on support and mentorship",
     ],
   },
