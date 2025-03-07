@@ -140,7 +140,7 @@ export default function Home() {
                 />
                 <FeatureCard
                   icon={<BookOpen className="w-8 h-8 text-primary" />}
-                  title="IB Curriculum"
+                  title="Mastery-Based Curriculum"
                   description="World-class education"
                 />
                 <FeatureCard
