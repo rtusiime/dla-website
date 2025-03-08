@@ -247,7 +247,7 @@ export default function Home() {
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 animate-fade-in-up animation-delay-400"
               >
-                Begin Your Journey
+                Learn More
               </Button>
             </Link>
             <Button
