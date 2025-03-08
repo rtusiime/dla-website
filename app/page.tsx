@@ -239,7 +239,7 @@ export default function Home() {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6 animate-fade-in">Begin Your Journey</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in animation-delay-200">
-            Join a community of future leaders. Applications are now open for the 2025-2026 academic year.
+            Join a community of future leaders. Applications are opening soon. Sign up to our mailing list to receive regular updates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="https://docs.google.com/document/d/1vbSUzIU7T-b6tNwws_djl22aMxBz45GOVA9D5iTdecs/edit?tab=t.0#heading=h.ordjhs9wp7ai" passHref target="_blank" rel="noopener noreferrer">
