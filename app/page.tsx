@@ -98,14 +98,6 @@ export default function Home() {
             </Link>
           </div>
           <div className="hidden md:block">
-            <div className="w-[400px] h-[400px] relative mx-auto animate-float">
-              <Image
-                src={DLALogo}
-                alt="DLA Logo Large"
-                fill
-                className="object-contain"
-              />
-            </div>
           </div>
         </div>
       </section>
