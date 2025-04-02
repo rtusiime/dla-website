@@ -9,7 +9,7 @@ import { ApproachTimeline } from "@/components/ApproachTimeLine"
 import { DelightfulFAQ } from "@/components/DelightfulFAQ"
 import { ContactForm } from "@/components/ContactForm"
 import { AnimatePresence } from "framer-motion"
-import DLALogo from '@/public/dla-logo.png'
+import DLALogo from '@/app/dla-logo.png'
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
