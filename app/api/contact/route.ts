@@ -1,60 +1,17 @@
-import { NextResponse } from 'next/server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { NextResponse } from "next/server"
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const data = await req.json()
-    const { name, email, message } = data
+    const formData = await request.json()
+    console.log("API route received form data:", formData)
 
-    // Validate required fields
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
+    // In a real application, you would send this data to your email service
+    // or store it in a database. For now, we'll just log it.
 
-    const submission = {
-      id: Date.now(),
-      name,
-      email,
-      message,
-      timestamp: new Date().toISOString(),
-    }
-
-    // Get the data directory path
-    const dataDir = path.join(process.cwd(), 'data')
-    const filePath = path.join(dataDir, 'contacts.json')
-
-    // Create data directory if it doesn't exist
-    try {
-      await fs.access(dataDir)
-    } catch {
-      await fs.mkdir(dataDir)
-    }
-
-    // Read existing contacts or create empty array
-    let contacts = []
-    try {
-      const fileContent = await fs.readFile(filePath, 'utf8')
-      contacts = JSON.parse(fileContent)
-    } catch {
-      // File doesn't exist yet, use empty array
-    }
-
-    // Add new submission
-    contacts.push(submission)
-
-    // Write back to file
-    await fs.writeFile(filePath, JSON.stringify(contacts, null, 2))
-
+    // Return success
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error saving contact:', error)
-    return NextResponse.json(
-      { error: 'Failed to save contact information' },
-      { status: 500 }
-    )
+    console.error("API route error:", error)
+    return NextResponse.json({ success: false, error: "Server error" }, { status: 500 })
   }
 }

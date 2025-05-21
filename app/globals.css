@@ -3,32 +3,36 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     /* Core colors */
     --background: 0 0% 100%; /* #FFFFFF */
-    --foreground: 0 0% 12%; /* #1F1F1F */
+    --foreground: 215 65% 14%; /* #0A1E3C - Navy */
 
-    /* Primary: Rich gold from logo */
-    --primary: 35 40% 40%; /* #8B7355 */
+    /* Primary: Navy from logo */
+    --primary: 215 65% 14%; /* #0A1E3C */
     --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    /* Secondary: Deep charcoal */
-    --secondary: 0 0% 12%; /* #1F1F1F */
-    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    /* Secondary: Gold from logo */
+    --secondary: 40 50% 55%; /* #C6A455 */
+    --secondary-foreground: 215 65% 14%; /* #0A1E3C */
 
-    /* Accent: Warm brown */
-    --accent: 30 20% 90%; /* #EBE3DB */
-    --accent-light: 30 20% 95%; /* #F5F0EB */
-    --accent-foreground: 0 0% 12%; /* #1F1F1F */
+    /* Accent: Light gold */
+    --accent: 40 50% 95%; /* #FAF6EE */
+    --accent-light: 40 50% 98%; /* #FCFAF5 */
+    --accent-foreground: 215 65% 14%; /* #0A1E3C */
 
     /* Muted tones */
-    --muted: 30 20% 96%; /* #F7F4F1 */
-    --muted-foreground: 0 0% 45%; /* #737373 */
+    --muted: 215 65% 95%; /* #F0F4F9 */
+    --muted-foreground: 215 65% 40%; /* #416EB9 */
 
     /* Utility colors */
-    --border: 30 20% 90%; /* #EBE3DB */
-    --input: 30 20% 90%; /* #EBE3DB */
-    --ring: 35 40% 40%; /* #8B7355 */
+    --border: 40 50% 85%; /* #F5ECDD */
+    --input: 40 50% 85%; /* #F5ECDD */
+    --ring: 40 50% 55%; /* #C6A455 */
 
     /* System colors */
     --destructive: 0 84.2% 60.2%; /* #EF4444 */
@@ -36,11 +40,11 @@
 
     /* Card colors */
     --card: 0 0% 100%; /* #FFFFFF */
-    --card-foreground: 0 0% 12%; /* #1F1F1F */
+    --card-foreground: 215 65% 14%; /* #0A1E3C */
 
     /* Popover colors */
     --popover: 0 0% 100%; /* #FFFFFF */
-    --popover-foreground: 0 0% 12%; /* #1F1F1F */
+    --popover-foreground: 215 65% 14%; /* #0A1E3C */
 
     --radius: 0.5rem;
   }
@@ -55,3 +59,105 @@
   }
 }
 
+@keyframes gradient {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s linear infinite;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-gold {
+  text-shadow: 0 0 5px rgba(198, 164, 85, 0.5);
+}
+
+.star-animation:nth-child(1) {
+  animation-delay: 0s;
+}
+.star-animation:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.star-animation:nth-child(3) {
+  animation-delay: 1s;
+}
+.star-animation:nth-child(4) {
+  animation-delay: 1.5s;
+}
+.star-animation:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.gold-gradient {
+  background: linear-gradient(90deg, #c6a455, #e1c799, #c6a455);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s linear infinite;
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, #0a1e3c, #27426f, #0a1e3c);
+}
+
+.tree-branch {
+  transform-origin: bottom center;
+}
+
+.tree-branch:nth-child(odd) {
+  animation-delay: 1s;
+}
+
+.tree-branch:nth-child(even) {
+  animation-delay: 2s;
+}
+
+.star-bg {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}

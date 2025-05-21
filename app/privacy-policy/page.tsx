@@ -4,34 +4,54 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, Book, Glasses, Globe, Users, Shield, Scale } from "lucide-react"
+import { ChevronLeft, Shield, Lock, Eye, FileText, Bell, RefreshCw, Mail } from "lucide-react"
 
 const sections = [
-  { icon: <Book className="w-8 h-8" />, title: "Introduction", content: "Welcome to Douglass Leadership Academy..." },
-  {
-    icon: <Glasses className="w-8 h-8" />,
-    title: "Eligibility",
-    content: "To be eligible for our Services, students must...",
-  },
-  { icon: <Globe className="w-8 h-8" />, title: "Services", content: "DLA facilitates educational opportunities..." },
-  {
-    icon: <Users className="w-8 h-8" />,
-    title: "Code of Conduct",
-    content: "Students must follow all partner school rules...",
-  },
   {
     icon: <Shield className="w-8 h-8" />,
-    title: "Privacy",
-    content: "We collect and use personal information as outlined...",
+    title: "Introduction",
+    content:
+      "At Douglass Leadership Academy (DLA), we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with our services.",
   },
   {
-    icon: <Scale className="w-8 h-8" />,
-    title: "Legal",
-    content: "These Terms are governed by the laws of the State of New York...",
+    icon: <Eye className="w-8 h-8" />,
+    title: "Information We Collect",
+    content:
+      "We collect personal information that you voluntarily provide to us when you express interest in our programs, register for our newsletter, or contact us. This may include your name, email address, phone number, and any other information you choose to provide. We also automatically collect certain information when you visit our website, including your IP address, browser type, referring/exit pages, and operating system.",
+  },
+  {
+    icon: <FileText className="w-8 h-8" />,
+    title: "How We Use Your Information",
+    content:
+      "We use your information to communicate with you, process applications, improve our services, send periodic emails, and better understand your needs. We may also use your information to comply with legal obligations, resolve disputes, and enforce our policies.",
+  },
+  {
+    icon: <Lock className="w-8 h-8" />,
+    title: "Data Protection",
+    content:
+      "We implement appropriate technical and organizational measures to protect your personal data against unauthorized or unlawful processing, accidental loss, destruction, or damage. However, no method of transmission over the Internet or electronic storage is 100% secure, so we cannot guarantee absolute security.",
+  },
+  {
+    icon: <Bell className="w-8 h-8" />,
+    title: "Cookies and Tracking",
+    content:
+      "We use cookies and similar tracking technologies to track activity on our website and hold certain information. Cookies are files with a small amount of data that may include an anonymous unique identifier. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.",
+  },
+  {
+    icon: <RefreshCw className="w-8 h-8" />,
+    title: "Third-Party Services",
+    content:
+      "Our website may contain links to third-party websites or services that are not owned or controlled by DLA. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.",
+  },
+  {
+    icon: <Mail className="w-8 h-8" />,
+    title: "Contact Us",
+    content:
+      "If you have any questions about this Privacy Policy, please contact us through our website contact form or by email at privacy@douglassleadershipacademy.org.",
   },
 ]
 
-export default function TermsAndConditions() {
+export default function PrivacyPolicy() {
   const [activeSection, setActiveSection] = useState(0)
   const [showContent, setShowContent] = useState(false)
 
@@ -64,7 +84,7 @@ export default function TermsAndConditions() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Terms of Service
+              Privacy Policy
             </motion.h1>
             {/* Gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50 animate-gradient" />
@@ -76,7 +96,7 @@ export default function TermsAndConditions() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Empowering the next generation of global leaders
+            How we protect and respect your data
           </motion.p>
 
           {/* Decorative lines */}
@@ -125,6 +145,25 @@ export default function TermsAndConditions() {
               >
                 <h2 className="text-2xl font-bold text-primary mb-4">{sections[activeSection].title}</h2>
                 <p className="text-secondary/80">{sections[activeSection].content}</p>
+
+                {activeSection === 0 && (
+                  <div className="mt-4 text-sm text-secondary/70">
+                    <p>Last Updated: May 21, 2025</p>
+                  </div>
+                )}
+
+                {activeSection === 6 && (
+                  <div className="mt-6 p-4 bg-navy-50 rounded-lg">
+                    <h3 className="font-semibold text-navy-800 mb-2">Contact Information</h3>
+                    <p className="text-navy-700">
+                      Douglass Leadership Academy
+                      <br />
+                      Email: privacy@douglassleadershipacademy.org
+                      <br />
+                      Website: www.douglassleadershipacademy.org
+                    </p>
+                  </div>
+                )}
               </motion.div>
             )}
           </AnimatePresence>

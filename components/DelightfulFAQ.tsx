@@ -9,32 +9,32 @@ const faqItems = [
   {
     question: "Why 'Douglass' Leadership Academy?",
     answer:
-      "Named after Frederick Douglass, one of the most influential African Americans in history and a Rochester icon, our academy embodies his legacy of education as a path to freedom and opportunity. Like Douglass, we believe in the transformative power of education to break cycles of poverty and create new possibilities.",
+      "Named after Frederick Douglass, one of the most influential African Americans in history, our academy embodies his legacy of education as a path to freedom and opportunity. Like Douglass, we believe in the transformative power of education to break cycles of poverty and create new possibilities.",
   },
   {
-    question: "How do you ensure student safety?",
+    question: "Why Próspera, Honduras?",
     answer:
-      "Safety is our top priority. Our partner schools are located in secure, established areas with 24/7 security and supervision. East African international schools have a long history of providing safe, nurturing environments for students from around the world.",
+      "Próspera offers an ideal combination of fast-moving governance, strong infrastructure, legal clarity, and proximity to the United States (just a 7-hour flight from NYC). This location allows us to provide a world-class education at a fraction of U.S. costs while offering students a transformative global experience.",
+  },
+  {
+    question: "How does the community nomination process work?",
+    answer:
+      "Each ZIP code selects a 'Douglass Leader' (ages 14-17) who receives a transformative education and returns equipped to lead back home. This approach ensures that resources return to communities and creates a network of future leaders across the country.",
+  },
+  {
+    question: "How is the program funded?",
+    answer:
+      "Our program is fully funded through U.S. school vouchers and Education Savings Accounts (ESAs). By operating in a low-cost region, we can provide a premium education experience at approximately 1/6 of U.S. costs, making it sustainable without requiring additional philanthropy.",
+  },
+  {
+    question: "What curriculum do you use?",
+    answer:
+      "We use a mastery-based curriculum through the Khan Schools Network, complemented by ASU Prep Global for accreditation. This approach ensures students truly understand concepts before moving forward, while also providing recognized credentials for college admissions.",
   },
   {
     question: "How do you maintain family connections?",
     answer:
-      "We facilitate regular video calls, provide real-time updates, and support parent visits. Our staff is available 24/7 to address any concerns. We create a family-like atmosphere through dedicated mentorship and support staff who provide personalized attention to each student.",
-  },
-  {
-    question: "What about medical care?",
-    answer:
-      "Our partner schools have on-site medical facilities and established relationships with top hospitals in their respective cities. We provide comprehensive health insurance coverage and ensure access to quality healthcare at a fraction of U.S. costs.",
-  },
-  {
-    question: "How does the funding work?",
-    answer:
-      "We work with families to utilize school choice vouchers, Education Savings Accounts (ESAs), and private scholarships. The total cost, including tuition, room and board, and flights, is significantly lower than comparable U.S. private schools.",
-  },
-  {
-    question: "What about college preparation?",
-    answer:
-      "Our International Baccalaureate curriculum is recognized worldwide. We provide comprehensive college counseling, SAT/ACT preparation, and support throughout the university application process. Our students are well-prepared for top universities globally.",
+      "We facilitate regular video calls, provide real-time updates, and support family visits. Our staff is available 24/7 to address any concerns, and we create a family-like atmosphere through dedicated mentorship and support staff who provide personalized attention to each student.",
   },
 ]
 
@@ -49,15 +49,15 @@ export const DelightfulFAQ: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="bg-white rounded-lg shadow-lg overflow-hidden"
+          className="bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-gold-500"
         >
           <button
             className="w-full p-4 text-left flex justify-between items-center focus:outline-none"
             onClick={() => setActiveIndex(activeIndex === index ? null : index)}
           >
-            <span className="text-lg font-semibold text-primary">{item.question}</span>
+            <span className="text-lg font-semibold text-navy-800">{item.question}</span>
             <ChevronDown
-              className={`w-5 h-5 text-primary transition-transform duration-300 ${
+              className={`w-5 h-5 text-gold-500 transition-transform duration-300 ${
                 activeIndex === index ? "transform rotate-180" : ""
               }`}
             />
@@ -70,8 +70,8 @@ export const DelightfulFAQ: React.FC = () => {
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="p-4 bg-accent/10">
-                  <p className="text-secondary">{item.answer}</p>
+                <div className="p-4 bg-navy-50">
+                  <p className="text-navy-700">{item.answer}</p>
                 </div>
               </motion.div>
             )}
@@ -81,4 +81,3 @@ export const DelightfulFAQ: React.FC = () => {
     </div>
   )
 }
-
