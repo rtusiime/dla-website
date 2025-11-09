@@ -38,11 +38,11 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white/80 backdrop-blur-sm"
+          isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/80 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto px-4 py-4">
@@ -56,33 +56,33 @@ export default function Home() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-primary">Douglass Leadership Academy</span>
+              <span className="text-xl font-bold text-foreground">Douglass Leadership Academy</span>
             </div>
             <div className="hidden md:flex space-x-8">
-              <Link href="#immersion" className="text-foreground/80 hover:text-primary transition-colors font-medium">
+              <Link href="#immersion" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
                 DLA Immersion
               </Link>
-              <Link href="#cafe" className="text-foreground/80 hover:text-primary transition-colors font-medium">
+              <Link href="#cafe" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
                 Uganda Café
               </Link>
-              <Link href="#impact" className="text-foreground/80 hover:text-primary transition-colors font-medium">
+              <Link href="#impact" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
                 Impact
               </Link>
-              <Link href="#join" className="text-foreground/80 hover:text-primary transition-colors font-medium">
+              <Link href="#join" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
                 Get Involved
               </Link>
             </div>
             <Link href="/survey" passHref>
-              <Button className="bg-secondary hover:bg-secondary/90 text-white font-semibold">Contact Us</Button>
+              <Button className="bg-secondary hover:bg-secondary/90 text-primary font-semibold">Contact Us</Button>
             </Link>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-primary via-primary/90 to-secondary overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-muted to-background overflow-hidden pt-20">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(249,115,22,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_50%)]" />
 
         <div className="relative z-10 container mx-auto px-4 py-24">
           <div className="max-w-5xl mx-auto text-center">
@@ -90,7 +90,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight"
             >
               Your Zip Code Shouldn't Define Your Destiny
             </motion.h1>
@@ -98,15 +98,15 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-3xl text-white/90 mb-8 leading-relaxed font-light"
+              className="text-xl md:text-3xl text-foreground/90 mb-8 leading-relaxed font-light"
             >
-              We're offering a <span className="font-bold text-accent">new one</span>.
+              We're offering a <span className="font-bold text-secondary">new one</span>.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-foreground/80 mb-12 max-w-3xl mx-auto"
             >
               Two revolutionary programs. One mission: Breaking the cycle of geographic inequality through world-class
               education and economic innovation.
@@ -119,7 +119,7 @@ export default function Home() {
             >
               <Button
                 size="lg"
-                className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 font-semibold"
+                className="bg-secondary text-primary hover:bg-secondary/90 text-lg px-8 py-6 font-semibold"
                 onClick={() => document.getElementById("immersion")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Explore DLA Immersion
@@ -128,7 +128,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-6 font-semibold bg-transparent"
+                className="border-2 border-foreground text-foreground hover:bg-foreground/10 text-lg px-8 py-6 font-semibold bg-transparent"
                 onClick={() => document.getElementById("cafe")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Discover Uganda Café
@@ -142,7 +142,7 @@ export default function Home() {
       {/* Quote Section */}
       <section className="bg-muted py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <blockquote className="text-2xl md:text-4xl italic text-primary font-light">
+          <blockquote className="text-2xl md:text-4xl italic text-secondary font-light">
             "Once you learn to read, you will be forever free."
           </blockquote>
           <footer className="text-xl mt-6 text-foreground font-semibold">— Frederick Douglass</footer>
@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* DLA Immersion Section */}
-      <section id="immersion" className="py-24 bg-white">
+      <section id="immersion" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -170,7 +170,12 @@ export default function Home() {
 
             {/* Hero Image */}
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-16">
-              <Image src="/american-and-ugandan-students-collaborating-on-pro.jpg" alt="Students collaborating" fill className="object-cover" />
+              <Image
+                src="/american-and-ugandan-students-collaborating-on-pro.jpg"
+                alt="Students collaborating"
+                fill
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent flex items-end p-8">
                 <p className="text-white text-2xl font-bold">A Global Leadership Accelerator</p>
               </div>
@@ -330,7 +335,12 @@ export default function Home() {
 
             {/* Hero Image */}
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-16">
-              <Image src="/african-student-looking-at-computer-screen-in-inte.jpg" alt="Student learning in café" fill className="object-cover" />
+              <Image
+                src="/african-student-looking-at-computer-screen-in-inte.jpg"
+                alt="Student learning in café"
+                fill
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/70 via-transparent to-transparent flex items-end p-8">
                 <p className="text-white text-2xl font-bold">A Scalable Platform that Pays Students for Mastery</p>
               </div>
@@ -460,7 +470,7 @@ export default function Home() {
       </section>
 
       {/* Impact Section */}
-      <section id="impact" className="py-24 bg-white">
+      <section id="impact" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-6xl font-bold text-primary mb-6">
@@ -545,7 +555,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-12">
+      <footer className="bg-background border-t border-border text-foreground py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center space-x-4">
@@ -555,20 +565,20 @@ export default function Home() {
               <span className="font-semibold text-lg">Douglass Leadership Academy</span>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link href="/evolution" className="hover:text-accent transition-colors">
+              <Link href="/evolution" className="hover:text-secondary transition-colors">
                 DLA Evolution
               </Link>
-              <Link href="/twenty-year-vision-abridged" className="hover:text-accent transition-colors">
+              <Link href="/twenty-year-vision-abridged" className="hover:text-secondary transition-colors">
                 20-Year Vision (Abridged)
               </Link>
-              <Link href="/twenty-year-vision-comprehensive" className="hover:text-accent transition-colors">
+              <Link href="/twenty-year-vision-comprehensive" className="hover:text-secondary transition-colors">
                 20-Year Vision (Full)
               </Link>
-              <Link href="/terms" className="hover:text-accent transition-colors">
+              <Link href="/terms" className="hover:text-secondary transition-colors">
                 Terms & Conditions
               </Link>
             </div>
-            <p className="text-white/60">&copy; 2025 DLA. All rights reserved.</p>
+            <p className="text-foreground/60">&copy; 2025 DLA. All rights reserved.</p>
           </div>
         </div>
       </footer>
