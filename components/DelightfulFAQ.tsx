@@ -81,4 +81,3 @@ export const DelightfulFAQ: React.FC = () => {
     </div>
   )
 }
-

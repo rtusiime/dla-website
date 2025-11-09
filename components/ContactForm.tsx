@@ -100,4 +100,3 @@ export const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     </motion.div>
   )
 }
-
