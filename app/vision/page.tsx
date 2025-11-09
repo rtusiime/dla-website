@@ -75,7 +75,7 @@ const phases = [
       { risk: "Parents pull out last minute", mitigation: "Require 50% non-refundable deposit 3 months prior" },
       {
         risk: "Canon leaves, new HM not supportive",
-        mitigation: "Work with Jimmy Rogers (BOG), Chris Luswata (OB Chair), or pivot to different school",
+        mitigation: "Work with Board of Governors and Old Boys network leadership, or pivot to different school",
       },
     ],
     successMetrics: [
@@ -447,7 +447,7 @@ export default function VisionPage() {
             <p className="text-white/90 leading-relaxed mb-4">
               Create a world-class boarding school in low-cost-of-living countries (starting with Uganda) that serves
               American students at $15k/year—funded by ESAs, vouchers, and charter dollars—while cross-subsidizing
-              local students. Geographic arbitrage enables Brooks-quality education at a fraction of US costs.
+              local students. Geographic arbitrage enables Phillips-Exeter-quality education at a fraction of US costs.
             </p>
             <p className="text-white/90 leading-relaxed">
               <strong className="text-gold-300">Why:</strong> Transform outcomes for students from under-resourced
@@ -539,7 +539,7 @@ export default function VisionPage() {
                 <h4 className="font-bold mb-4 text-navy-900 text-xl">Relationships & Trust</h4>
                 <ul className="space-y-2 text-navy-700">
                   <li>• Buddo/partner school leadership (Canon, Sungu, Byaruhanga)</li>
-                  <li>• OB network (Chris Luswata, Jimmy Rogers, Konga Panga)</li>
+                  <li>• Old Boys network and Board of Governors leadership</li>
                   <li>• US institutional partners for credibility</li>
                   <li>• Parent community (diaspora → Rochester families)</li>
                 </ul>

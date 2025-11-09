@@ -227,7 +227,7 @@ export default function GlobalImmersionPage() {
                 <div className="bg-navy-800/50 rounded-xl p-6 border-l-4 border-gold-500">
                   <h4 className="font-bold text-gold-300 mb-2">Elite Culture at African Prices</h4>
                   <p className="text-white/80">
-                    Brooks-level structure, coaching, and mastery-based academics for the cost of a U.S. ESA/voucher.
+                    Phillips-Exeter-level structure, coaching, and mastery-based academics for the cost of a U.S. ESA/voucher.
                   </p>
                 </div>
                 <div className="bg-navy-800/50 rounded-xl p-6 border-l-4 border-gold-500">
