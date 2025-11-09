@@ -12,14 +12,14 @@ const faqItems = [
       "Named after Frederick Douglass, one of the most influential African Americans in history, our academy embodies his legacy of education as a path to freedom and opportunity. Like Douglass, we believe in the transformative power of education to break cycles of poverty and create new possibilities.",
   },
   {
-    question: "Why Próspera, Honduras?",
+    question: "Why Uganda?",
     answer:
-      "Próspera offers an ideal combination of fast-moving governance, strong infrastructure, legal clarity, and proximity to the United States (just a 7-hour flight from NYC). This location allows us to provide a world-class education at a fraction of U.S. costs while offering students a transformative global experience.",
+      "Uganda offers Phillips-Exeter-level boarding school culture at a fraction of U.S. costs through geographic arbitrage. Elite institutions like King's College Budo provide world-class facilities, rigorous academics, and a transformative global experience—all while maintaining strong safety protocols and English-language instruction.",
   },
   {
-    question: "How does the community nomination process work?",
+    question: "What programs do you offer?",
     answer:
-      "Each ZIP code selects a 'Douglass Leader' (ages 14-17) who receives a transformative education and returns equipped to lead back home. This approach ensures that resources return to communities and creates a network of future leaders across the country.",
+      "We offer two complementary models: (1) Global Leadership Immersion—a semester/year-long boarding school experience in Uganda for high school students, and (2) 2hr Learning Kiosk—a Learn-to-Earn mastery platform deployed in internet cafés across Africa, serving students who can't afford traditional schooling.",
   },
   {
     question: "How is the program funded?",

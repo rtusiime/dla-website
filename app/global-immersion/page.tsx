@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Navigation } from "@/components/Navigation"
 import Link from "next/link"
@@ -7,9 +8,19 @@ import { GlowButton } from "@/components/GlowButton"
 import { Globe, GraduationCap, Shield, DollarSign, Users, TrendingUp, CheckCircle, Calendar, Award } from "lucide-react"
 
 export default function GlobalImmersionPage() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <div className="min-h-screen bg-white">
-      <Navigation isScrolled={true} />
+      <Navigation isScrolled={isScrolled} />
 
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900">
