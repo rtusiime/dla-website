@@ -8,7 +8,12 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Douglass Leadership Academy",
   description: "A World-Class Boarding School for Low-Income American Students",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/final-dla-logo-uRYlx7KejNcZjiOTEiUe2CnD5JwKfD.png',
+    shortcut: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/final-dla-logo-uRYlx7KejNcZjiOTEiUe2CnD5JwKfD.png',
+    apple: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/final-dla-logo-uRYlx7KejNcZjiOTEiUe2CnD5JwKfD.png',
+  }
 }
 
 export default function RootLayout({
