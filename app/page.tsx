@@ -38,11 +38,11 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Header */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/80 backdrop-blur-sm"
+          isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-md" : "bg-slate-900/80 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto px-4 py-4">
@@ -56,33 +56,33 @@ export default function Home() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold text-foreground">Douglass Leadership Academy</span>
+              <span className="text-xl font-bold text-white">Douglass Leadership Academy</span>
             </div>
             <div className="hidden md:flex space-x-8">
-              <Link href="#immersion" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
+              <Link href="#immersion" className="text-white/80 hover:text-[#d4a574] transition-colors font-medium">
                 DLA Immersion
               </Link>
-              <Link href="#cafe" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
+              <Link href="#cafe" className="text-white/80 hover:text-[#d4a574] transition-colors font-medium">
                 Uganda Café
               </Link>
-              <Link href="#impact" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
+              <Link href="#impact" className="text-white/80 hover:text-[#d4a574] transition-colors font-medium">
                 Impact
               </Link>
-              <Link href="#join" className="text-foreground/80 hover:text-secondary transition-colors font-medium">
+              <Link href="#join" className="text-white/80 hover:text-[#d4a574] transition-colors font-medium">
                 Get Involved
               </Link>
             </div>
             <Link href="/survey" passHref>
-              <Button className="bg-secondary hover:bg-secondary/90 text-primary font-semibold">Contact Us</Button>
+              <Button className="bg-[#d4a574] hover:bg-[#c9933e] text-slate-900 font-semibold">Contact Us</Button>
             </Link>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-muted to-background overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center bg-slate-900 overflow-hidden pt-20">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,165,116,0.1),transparent_50%)]" />
 
         <div className="relative z-10 container mx-auto px-4 py-24">
           <div className="max-w-5xl mx-auto text-center">
@@ -90,23 +90,26 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
             >
-              Your Zip Code Shouldn't Define Your Destiny
+              <span className="text-[#d4a574]">Education</span>
+              <br />
+              <span className="text-white">is Freedom</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-3xl text-foreground/90 mb-8 leading-relaxed font-light"
+              className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              We're offering a <span className="font-bold text-secondary">new one</span>.
+              Continuing Frederick Douglass's legacy through world-class education that transcends borders and
+              transforms lives.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-foreground/80 mb-12 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-white/80 mb-12 max-w-3xl mx-auto"
             >
               Two revolutionary programs. One mission: Breaking the cycle of geographic inequality through world-class
               education and economic innovation.
