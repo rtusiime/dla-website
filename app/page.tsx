@@ -39,16 +39,6 @@ export default function Home() {
     return () => observer.disconnect()
   }, [])
 
-  const handleBeginJourney = () => {
-    setContactSubject("Begin Your Journey")
-    setShowContactForm(true)
-  }
-
-  const handleCurriculumRequest = () => {
-    setContactSubject("Curriculum Information Request")
-    setShowContactForm(true)
-  }
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Frederick Douglass background */}
@@ -89,13 +79,9 @@ export default function Home() {
                 transforms lives.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="https://www.canva.com/design/DAGiDLEJsZE/CnvK1yb7TBGR_-3ztuigfQ/view?utm_content=DAGiDLEJsZE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd3ec16becd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="/vision">
                   <GlowButton size="lg" className="bg-gold-500 hover:bg-gold-400 text-navy-900">
-                    View Our Donor Deck
+                    Vision Deck
                   </GlowButton>
                 </Link>
                 <Link
@@ -170,7 +156,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                Why <span className="gold-gradient">Douglass Leadership Academy</span>?
+                Your Zip Code Shouldn't Define Your <span className="gold-gradient">Destiny</span>
               </motion.h2>
               <motion.p
                 className="text-lg text-navy-700 mb-8"
@@ -179,33 +165,31 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                We're revolutionizing education by combining world-class mastery-based learning with global exposure in
-                a low-cost region, creating unprecedented opportunities for talented students from underserved
-                communities.
+                For promising American students in underserved communities, Douglass Leadership Academy offers a world-class boarding school experience at elite East African institutions—at a cost covered by public education funds. We're not just changing schools; we're changing the trajectory of a lifetime.
               </motion.p>
               <div className="grid grid-cols-2 gap-6">
                 <FeatureCard
                   icon={<GraduationCap className="w-8 h-8 text-gold-500" />}
-                  title="Mastery-Based"
-                  description="Khan Schools Network curriculum"
+                  title="Elite Institutions"
+                  description="Century-old 'Etons of East Africa'"
                   delay={0.3}
                 />
                 <FeatureCard
                   icon={<MapPin className="w-8 h-8 text-gold-500" />}
-                  title="Próspera, Honduras"
-                  description="Beautiful campus location"
+                  title="Geographic Arbitrage"
+                  description="World-class education, smart economics"
                   delay={0.4}
                 />
                 <FeatureCard
                   icon={<Users className="w-8 h-8 text-gold-500" />}
-                  title="Community Nominated"
-                  description="One student per ZIP code"
+                  title="Global Citizenship"
+                  description="Build lifelong cross-cultural fluency"
                   delay={0.5}
                 />
                 <FeatureCard
                   icon={<Sparkles className="w-8 h-8 text-gold-500" />}
                   title="Fully Funded"
-                  description="Through school vouchers"
+                  description="Through ESAs and vouchers"
                   delay={0.6}
                 />
               </div>
@@ -219,7 +203,7 @@ export default function Home() {
             >
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-13%20at%203.27.15%E2%80%AFPM-IojuRipKhjntfm9FG6nqgnUWsmm5G0.png"
-                alt="Globe showing Honduras"
+                alt="Global education connecting continents"
                 fill
                 className="object-cover"
               />
@@ -252,59 +236,120 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Model Section */}
+      {/* Model Section - Dual Approach */}
       <section id="model" className="py-24 bg-navy-50">
         <div className="container mx-auto px-4">
           <motion.h2
-            className="text-4xl font-bold text-navy-900 mb-12 text-center"
+            className="text-4xl font-bold text-navy-900 mb-6 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Our <span className="gold-gradient">Model</span>
+            Two <span className="gold-gradient">Pathways</span>, One Mission
           </motion.h2>
+          <motion.p
+            className="text-lg text-navy-700 max-w-3xl mx-auto mb-16 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            We're building a self-sustaining ecosystem where American students gain transformative global experiences while directly funding education for thousands in East Africa.
+          </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <ModelCard
-              number="01"
-              title="Community Nomination"
-              description="One student per U.S. ZIP code is selected as a 'Douglass Leader' to receive a transformative education and return equipped to lead back home."
-              delay={0.1}
-            />
-            <ModelCard
-              number="02"
-              title="Mastery-Based Learning"
-              description="Students progress at their own pace through Khan Schools Network curriculum, ensuring true understanding before moving forward."
-              delay={0.3}
-            />
-            <ModelCard
-              number="03"
-              title="Global Perspective"
-              description="Our campus in Próspera, Honduras provides a safe, immersive environment where students gain cross-cultural fluency while receiving a world-class education."
-              delay={0.5}
-            />
-          </div>
-
-          <div className="mt-16 text-center">
-            <motion.p
-              className="text-lg text-navy-700 max-w-3xl mx-auto mb-8"
+          {/* DLA Immersion Model */}
+          <div className="mb-16">
+            <motion.div
+              className="bg-white rounded-xl shadow-xl p-8 md:p-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
             >
-              Our innovative model delivers premium education at 1/6 of U.S. costs, making it fully sustainable through
-              school vouchers and education savings accounts (ESAs).
-            </motion.p>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="text-5xl font-bold gold-gradient">01</div>
+                <h3 className="text-3xl font-bold text-navy-900">The Leadership Immersion</h3>
+              </div>
+              <p className="text-lg text-navy-700 mb-6">
+                A radical reimagining of the semester abroad. We partner with elite, century-old educational institutions in Uganda to provide an unparalleled immersion experience for promising American students.
+              </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="border-l-4 border-gold-500 pl-4">
+                  <h4 className="font-bold text-navy-900 mb-2">Academic Rigor</h4>
+                  <p className="text-navy-700 text-sm">Challenging curriculum, small classes, and a peer group of driven, high-achieving students.</p>
+                </div>
+                <div className="border-l-4 border-gold-500 pl-4">
+                  <h4 className="font-bold text-navy-900 mb-2">Safety & Structure</h4>
+                  <p className="text-navy-700 text-sm">Secure boarding school campus focused on learning and growth, free from home distractions.</p>
+                </div>
+                <div className="border-l-4 border-gold-500 pl-4">
+                  <h4 className="font-bold text-navy-900 mb-2">Real-World Skills</h4>
+                  <p className="text-navy-700 text-sm">Capstone projects in coding, media, and entrepreneurship that build portfolios Ivy League schools crave.</p>
+                </div>
+              </div>
+              <div className="mt-8 p-6 bg-navy-50 rounded-lg border border-gold-100">
+                <p className="text-navy-900 font-semibold mb-2">The Financial Engine</p>
+                <p className="text-navy-700">
+                  Per-pupil funding in many US districts ($15,000-$20,000/year) covers tuition, room, board, healthcare, and flights. Through ESAs and voucher programs, we redirect existing public funds to deliver vastly superior outcomes. Each US student generates a ~$1,200 surplus that funds our Uganda Café Partnership.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Uganda Café Partnership */}
+          <div>
+            <motion.div
+              className="bg-navy-900 text-white rounded-xl shadow-xl p-8 md:p-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="text-5xl font-bold gold-gradient">02</div>
+                <h3 className="text-3xl font-bold text-white">The Uganda Café Partnership</h3>
+              </div>
+              <p className="text-lg text-white/90 mb-6">
+                A scalable, tech-driven "Learn-to-Earn" platform that pays students directly for academic mastery. By partnering with local entrepreneurs and leveraging Uganda's mobile money network, we turn internet cafés into engines of learning and economic opportunity.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-500/20">
+                  <h4 className="font-bold text-gold-300 mb-3">The Problem</h4>
+                  <p className="text-white/80 text-sm">For millions of families in rural Africa, the biggest barrier to education isn't a lack of schools—it's economics. When a child is in a classroom, they're not contributing to the family's daily survival.</p>
+                </div>
+                <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-500/20">
+                  <h4 className="font-bold text-gold-300 mb-3">The Solution</h4>
+                  <p className="text-white/80 text-sm">We pay students directly and instantly for learning. When a student masters a concept, a mobile money payment is sent to their family's wallet. School becomes a job.</p>
+                </div>
+              </div>
+              <div className="bg-gold-500/10 p-6 rounded-lg border border-gold-500/30">
+                <p className="text-gold-300 font-semibold mb-2">The Economics</p>
+                <p className="text-white/90">
+                  We're on a path to reduce costs from $150/year to $100/year per learner. With net revenue from each US student covering 8-12 Ugandan learners, we're building a self-perpetuating economic engine that scales to 100,000+ students within five years.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="mt-12 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.4 }}
             >
-              <GlowButton className="bg-navy-800 hover:bg-navy-700 text-white" onClick={handleCurriculumRequest}>
-                Learn More About Our Model
-              </GlowButton>
+              <p className="text-navy-700 mb-6 text-lg">Explore each pathway in detail:</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/global-immersion">
+                  <GlowButton className="bg-navy-800 hover:bg-navy-700 text-white">
+                    Leadership Immersion →
+                  </GlowButton>
+                </Link>
+                <Link href="/learning-kiosk">
+                  <GlowButton className="bg-gold-500 hover:bg-gold-400 text-navy-900">
+                    2hr Learning Kiosk →
+                  </GlowButton>
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -386,13 +431,9 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <Link
-              href="https://www.canva.com/design/DAGiDLEJsZE/CnvK1yb7TBGR_-3ztuigfQ/view?utm_content=DAGiDLEJsZE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd3ec16becd"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/vision">
               <GlowButton size="lg" className="bg-gold-500 hover:bg-gold-400 text-navy-900">
-                View Our Donor Deck
+                Vision Deck
               </GlowButton>
             </Link>
             <Link href="/contact">
@@ -450,7 +491,7 @@ export default function Home() {
   )
 }
 
-function FeatureCard({ icon, title, description, delay = 0 }) {
+function FeatureCard({ icon, title, description, delay = 0 }: { icon: React.ReactNode; title: string; description: string; delay?: number }) {
   return (
     <motion.div
       className="p-4 rounded-lg bg-navy-50 hover:bg-navy-100 transition-colors border border-gold-100"
@@ -463,26 +504,6 @@ function FeatureCard({ icon, title, description, delay = 0 }) {
       <div className="mb-3">{icon}</div>
       <h3 className="font-semibold text-navy-900 mb-1">{title}</h3>
       <p className="text-sm text-navy-700">{description}</p>
-    </motion.div>
-  )
-}
-
-function ModelCard({ number, title, description, delay = 0 }) {
-  return (
-    <motion.div
-      className="bg-white rounded-lg shadow-lg p-6 relative overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay }}
-      whileHover={{ y: -5, boxShadow: "0 15px 30px -10px rgba(10, 30, 60, 0.1)" }}
-    >
-      <div className="absolute -top-6 -left-6 text-9xl font-bold text-navy-50 select-none">{number}</div>
-      <div className="relative z-10">
-        <h3 className="text-xl font-bold text-navy-900 mb-3">{title}</h3>
-        <p className="text-navy-700">{description}</p>
-      </div>
-      <div className="absolute bottom-0 right-0 w-20 h-20 bg-gold-100 rounded-tl-full opacity-50" />
     </motion.div>
   )
 }

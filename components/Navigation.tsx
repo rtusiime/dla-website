@@ -4,20 +4,26 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { GlowButton } from "./GlowButton"
 import { ScrollLink } from "./ScrollLink"
 
 export const Navigation = ({ isScrolled }: { isScrolled: boolean }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [logoLoaded, setLogoLoaded] = useState(false)
+  const [modelDropdownOpen, setModelDropdownOpen] = useState(false)
 
   // Close mobile menu when scrolling
   useEffect(() => {
     if (isOpen) setIsOpen(false)
   }, [isScrolled])
 
-  const navItems = ["About", "Model", "Our Approach", "FAQ"]
+  const navItems = ["About", "Our Approach", "FAQ"]
+
+  const modelLinks = [
+    { name: "Leadership Immersion", href: "/global-immersion" },
+    { name: "2hr Learning Kiosk", href: "/learning-kiosk" },
+  ]
 
   return (
     <motion.nav
@@ -83,6 +89,47 @@ export const Navigation = ({ isScrolled }: { isScrolled: boolean }) => {
               </motion.div>
             ))}
 
+            {/* Model Dropdown */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * navItems.length }}
+              onMouseEnter={() => setModelDropdownOpen(true)}
+              onMouseLeave={() => setModelDropdownOpen(false)}
+            >
+              <button
+                className={`flex items-center gap-1 transition-colors duration-300 ${
+                  isScrolled ? "text-navy-800 hover:text-navy-900" : "text-white hover:text-gold-300"
+                }`}
+              >
+                <span>Model</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${modelDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <AnimatePresence>
+                {modelDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-navy-100 overflow-hidden"
+                  >
+                    {modelLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block px-4 py-3 text-navy-800 hover:bg-gold-50 hover:text-gold-700 transition-colors border-b border-navy-50 last:border-b-0"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -143,6 +190,26 @@ export const Navigation = ({ isScrolled }: { isScrolled: boolean }) => {
                       </ScrollLink>
                     </motion.div>
                   ))}
+
+                  {/* Mobile Model Links */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * navItems.length }}
+                    className="flex flex-col items-center space-y-4"
+                  >
+                    <span className="text-white/60 text-sm uppercase tracking-wider">Model</span>
+                    {modelLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="text-white text-xl hover:text-gold-300 transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </motion.div>
 
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

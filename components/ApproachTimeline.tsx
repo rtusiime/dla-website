@@ -5,33 +5,33 @@ import { Rocket, Users, Building } from "lucide-react"
 
 const timelineItems = [
   {
-    phase: "Phase One: Pilot Program",
+    phase: "Phase One: Proof of Concept",
     icon: <Rocket className="w-6 h-6" />,
     items: [
-      "Launch in Próspera, Honduras",
-      "Initial cohort of 30 students",
-      "Mastery-based curriculum via Khan Schools Network",
-      "Hands-on support and mentorship",
+      "Launch partnerships with elite Ugandan boarding schools (King's College Budo)",
+      "Pilot cohort of US students in immersion program",
+      "Deploy Learn-to-Earn platform in 3-5 internet cafés",
+      "Establish proof engine with rigorous data collection",
     ],
   },
   {
-    phase: "Phase Two: Growth",
+    phase: "Phase Two: Scale & Optimize",
     icon: <Users className="w-6 h-6" />,
     items: [
-      "Expand to 100-200 students",
-      "Establish dedicated campus facilities",
-      "Build robust support systems",
-      "Develop local partnerships",
+      "Expand to 50+ US students in Uganda immersion",
+      "Scale café network to 50+ locations serving 1,000+ learners",
+      "Reduce unit economics to $100/year per learner",
+      "Launch adaptive learning platform integrations",
     ],
   },
   {
-    phase: "Phase Three: Full Scale",
+    phase: "Phase Three: National Impact",
     icon: <Building className="w-6 h-6" />,
     items: [
-      "One student per ZIP code nationwide",
-      "Multiple campus locations",
-      "Community development initiatives",
-      "Economic impact programs",
+      "Scale to 100,000+ learners across Uganda and East Africa",
+      "Establish multiple immersion partnerships across the region",
+      "Launch community-owned café franchise model",
+      "Achieve full financial sustainability through cross-subsidy",
     ],
   },
 ]

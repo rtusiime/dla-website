@@ -100,7 +100,7 @@ export function ZipCodeImpactMap() {
       {/* Background map of USA */}
       <div className="relative h-[600px] md:h-[700px]">
         <Image
-          src="/placeholder.svg?height=700&width=1200"
+          src="https://w0.peakpx.com/wallpaper/500/28/HD-wallpaper-usa-lines-map-us-communications-map-neon-blue-lines-map-lines-modern-technology-usa-american-networks-usa-map-social-networks-in-the-usa.jpg"
           alt="Map of the United States"
           fill
           className="object-cover opacity-20"
